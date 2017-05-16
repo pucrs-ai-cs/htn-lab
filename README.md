@@ -95,4 +95,4 @@ Your assignment is to develop a domain file from the specification above in HTN,
 - How to make a method to move to any location?
 - How to make a method that reports all beacons?
 
-You must submit the solution (domain and problems) and the answer to the questions at moodle.
+You must submit the solution (domain and problems) and the answer to the questions at [Moodle](http://moodle.pucrs.br/mod/assign/view.php?id=695343).
