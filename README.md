@@ -19,60 +19,77 @@ Your assignment is to develop a domain file from the specification above in HTN,
 ## Primitives
 
 ```elisp
-(:action enter
-  :parameters (?bot - robot ?source - hallway ?destination - room)
-  :precondition (and
-    (at ?bot ?source)
-    (not (at ?bot ?destination))
-    (connected ?source ?destination)
+  (:operator (!enter ?bot ?source ?destination)
+    (
+      (robot ?bot)
+      (hallway ?source)
+      (room ?destination)
+      (at ?bot ?source)
+      (connected ?source ?destination)
+      (not (at ?bot ?destination))
+    )
+    (
+      (at ?bot ?source)
+    )
+    (
+      (at ?bot ?destination)
+    )
   )
-  :effect (and
-    (not (at ?bot ?source))
-    (at ?bot ?destination)
-  )
-)
 ```
 
 ```elisp
-(:action exit
-  :parameters (?bot - robot ?source - room ?destination - hallway)
-  :precondition (and
-    (at ?bot ?source)
-    (not (at ?bot ?destination))
-    (connected ?source ?destination)
+  (:operator (!exit ?bot ?source ?destination)
+    (
+      (robot ?bot)
+      (room ?source)
+      (hallway ?destination)
+      (at ?bot ?source)
+      (connected ?source ?destination)
+      (not (at ?bot ?destination))
+    )
+    (
+      (at ?bot ?source)
+    )
+    (
+      (at ?bot ?destination)
+    )
   )
-  :effect (and
-    (not (at ?bot ?source))
-    (at ?bot ?destination)
-  )
-)
 ```
 
 ```elisp
-(:action move
-  :parameters (?bot - robot ?source - hallway ?destination - hallway)
-  :precondition (and
-    (at ?bot ?source)
-    (not (at ?bot ?destination))
-    (connected ?source ?destination)
+  (:operator (!move ?bot ?source ?destination)
+    (
+      (robot ?bot)
+      (hallway ?source)
+      (hallway ?destination)
+      (at ?bot ?source)
+      (connected ?source ?destination)
+      (not (at ?bot ?destination))
+    )
+    (
+      (at ?bot ?source)
+    )
+    (
+      (at ?bot ?destination)
+    )
   )
-  :effect (and
-    (not (at ?bot ?source))
-    (at ?bot ?destination)
-  )
-)
 ```
 
 ```elisp
- (:action report
-  :parameters (?bot - robot ?source - location ?beacon - beacon)
-  :precondition (and
-    (at ?bot ?source)
-    (in ?beacon ?source)
-    (not (reported ?bot ?beacon))
+ (:operator (!report ?bot ?source ?beacon)
+    (
+      (robot ?bot)
+      (location ?source)
+      (beacon ?beacon)
+      (at ?bot ?source)
+      (in ?beacon ?source)
+      (not (reported ?bot ?beacon))
+    )
+    nil
+    (
+      (reported ?bot ?beacon)
+    )
   )
-  :effect (reported ?bot ?beacon)
-)
 ```
 
 ## Problems
