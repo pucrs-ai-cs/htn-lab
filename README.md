@@ -77,11 +77,18 @@ Your assignment is to develop a domain file from the specification above in HTN,
 
 ## Problems
 
-Problem1
+### Problem 1
+![Problem 1](fig/pb1.png)
 
-Problem2
+---
 
-Problem3
+### Problem 2
+![Problem 2](fig/pb2.png)
+
+---
+
+### Problem 3
+![Problem 3](fig/pb3.png)
 
 ## Questions
 
