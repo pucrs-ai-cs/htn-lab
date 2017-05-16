@@ -16,14 +16,76 @@ To ensure that Robby doesn’t cheat and visits all locations of interest, there
 
 Your assignment is to develop a domain file from the specification above in HTN, and then model the situations depicted in the images below as individual problem files.
 
-OPERATOR1
+## Primitives
 
-OPERATOR2
+```elisp
+(:action enter
+  :parameters (?bot - robot ?source - hallway ?destination - room)
+  :precondition (and
+    (at ?bot ?source)
+    (not (at ?bot ?destination))
+    (connected ?source ?destination)
+  )
+  :effect (and
+    (not (at ?bot ?source))
+    (at ?bot ?destination)
+  )
+)
+```
 
-...
+```elisp
+(:action exit
+  :parameters (?bot - robot ?source - room ?destination - hallway)
+  :precondition (and
+    (at ?bot ?source)
+    (not (at ?bot ?destination))
+    (connected ?source ?destination)
+  )
+  :effect (and
+    (not (at ?bot ?source))
+    (at ?bot ?destination)
+  )
+)
+```
+
+```elisp
+(:action move
+  :parameters (?bot - robot ?source - hallway ?destination - hallway)
+  :precondition (and
+    (at ?bot ?source)
+    (not (at ?bot ?destination))
+    (connected ?source ?destination)
+  )
+  :effect (and
+    (not (at ?bot ?source))
+    (at ?bot ?destination)
+  )
+)
+```
+
+```elisp
+ (:action report
+  :parameters (?bot - robot ?source - location ?beacon - beacon)
+  :precondition (and
+    (at ?bot ?source)
+    (in ?beacon ?source)
+    (not (reported ?bot ?beacon))
+  )
+  :effect (reported ?bot ?beacon)
+)
+```
+
+## Problems
 
 Problem1
 
 Problem2
 
 Problem3
+
+## Questions
+
+- How to make a method to move to any location?
+- How to make a method that reports all beacons?
+
+You must submit the solution (domain and problems) and the answer to the questions at moodle.
