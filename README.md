@@ -1,4 +1,4 @@
-# htn-lab
+# HTN-Lab
 
 ## Rescue Robot Domain
 
